@@ -62,9 +62,18 @@ extension WatchListViewController: UISearchResultsUpdating {
         // Optimise to reduce number of searches for when user stops typing
         
         // Call API to search
-        
-        // Update results controller
-        resultsVC.update(with: ["GOOG"])
+        APICaller.shared.search(query: query) { result in
+            switch result {
+                case .success(let response):
+                    DispatchQueue.main.async {
+                        // Update results controller
+                        resultsVC.update(with: response.result)
+                    }
+                case .failure(let error):
+                    print(error)
+            }
+        }
+
     }
 }
 
