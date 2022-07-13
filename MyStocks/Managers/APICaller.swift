@@ -24,9 +24,10 @@ final class APICaller {
         completion: @escaping (Result<SearchResponse, Error>) -> Void
     ) {
         request(
-            url: url(for: .search, queryParams: ["q":query]),
-            expecting: SearchResponse.self,
-            completion: completion
+            url: url(
+                for: .search, queryParams: ["q": query]),
+                expecting: SearchResponse.self,
+                completion: completion
         )
     }
     
@@ -47,8 +48,8 @@ final class APICaller {
         
         var queryItems = [URLQueryItem]()
         // Add any parameters
-        for (name, values) in queryParams {
-            queryItems.append(.init(name: name, value: values))
+        for (name, value) in queryParams {
+            queryItems.append(.init(name: name, value: value))
         }
         
         // Add token
@@ -78,7 +79,7 @@ final class APICaller {
                 if let error = error {
                     completion(.failure(error))
                 } else {
-                    completion(.failure(APIError.invalideUrl))
+                    completion(.failure(APIError.noDataReturned))
                 }
                 return
             }

@@ -13,7 +13,7 @@ struct SearchResponse: Codable {
 }
 
 struct SearchResult: Codable {
-    let descreption: String
+    let description: String
     let displaySymbol: String
     let symbol: String
     let type: String

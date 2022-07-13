@@ -8,19 +8,20 @@
 import UIKit
 
 protocol SearchResultsViewControllerDelegate: AnyObject {
-    func searchResultsViewControllerDidSelect(searchResult: String)
+    func searchResultsViewControllerDidSelect(searchResult: SearchResult)
 }
 
 class SearchResultsViewController: UIViewController {
     weak var delegate: SearchResultsViewControllerDelegate?
     
-    private var results: [String] = []
+    private var results: [SearchResult] = []
     
     private let tableView: UITableView = {
         let table = UITableView()
         // Register a cell
         table.register(SearchResultTableViewCell.self,
                        forCellReuseIdentifier: SearchResultTableViewCell.identifier)
+        table.isHidden = true
         return table
     }()
 
@@ -41,8 +42,9 @@ class SearchResultsViewController: UIViewController {
         tableView.dataSource = self
     }
     
-    public func update(with results: [String]) {
+    public func update(with results: [SearchResult]) {
         self.results = results
+        tableView.isHidden = results.isEmpty
         tableView.reloadData()
     }
 
@@ -53,7 +55,7 @@ extension SearchResultsViewController: UITableViewDelegate, UITableViewDataSourc
         _ tableView: UITableView,
         numberOfRowsInSection section: Int
     ) -> Int {
-        return 10
+        return results.count
     }
     
     func tableView(
@@ -63,9 +65,11 @@ extension SearchResultsViewController: UITableViewDelegate, UITableViewDataSourc
         let cell = tableView.dequeueReusableCell(
             withIdentifier: SearchResultTableViewCell.identifier,
             for: indexPath)
+        let model = results[indexPath.row]
+        
         var content = cell.defaultContentConfiguration()
-        content.text = "AAPL"
-        content.secondaryText = "Apple Inc."
+        content.text = model.displaySymbol
+        content.secondaryText = model.description
         cell.contentConfiguration = content
         
         return cell
@@ -75,7 +79,8 @@ extension SearchResultsViewController: UITableViewDelegate, UITableViewDataSourc
                    didSelectRowAt indexPath: IndexPath
     ) {
         tableView.deselectRow(at: indexPath, animated: true)
-        delegate?.searchResultsViewControllerDidSelect(searchResult: "AAPL")
+        let model = results[indexPath.row]
+        delegate?.searchResultsViewControllerDidSelect(searchResult: model)
     }
     
 }

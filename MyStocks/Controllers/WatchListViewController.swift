@@ -66,20 +66,22 @@ extension WatchListViewController: UISearchResultsUpdating {
             switch result {
                 case .success(let response):
                     DispatchQueue.main.async {
-                        // Update results controller
                         resultsVC.update(with: response.result)
                     }
                 case .failure(let error):
+                    DispatchQueue.main.async {
+                        resultsVC.update(with: [])
+                    }
                     print(error)
             }
         }
-
     }
 }
 
 extension WatchListViewController: SearchResultsViewControllerDelegate {
-    func searchResultsViewControllerDidSelect(searchResult: String) {
+    func searchResultsViewControllerDidSelect(searchResult: SearchResult) {
         // Present stock details for given selection
+        print("Did select \(searchResult.displaySymbol)")
     }
     
 }
