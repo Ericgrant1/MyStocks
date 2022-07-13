@@ -9,6 +9,8 @@ import UIKit
 
 class WatchListViewController: UIViewController {
     
+    private var searchTimer: Timer?
+    
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
@@ -59,22 +61,27 @@ extension WatchListViewController: UISearchResultsUpdating {
                   return
               }
         
-        // Optimise to reduce number of searches for when user stops typing
+        // Reset timer
+        searchTimer?.invalidate()
         
-        // Call API to search
-        APICaller.shared.search(query: query) { result in
-            switch result {
-                case .success(let response):
-                    DispatchQueue.main.async {
-                        resultsVC.update(with: response.result)
-                    }
-                case .failure(let error):
-                    DispatchQueue.main.async {
-                        resultsVC.update(with: [])
-                    }
-                    print(error)
+        // Kick off new timer
+        // Optimise to reduce number of searches for when user stops typing
+        searchTimer = Timer.scheduledTimer(withTimeInterval: 0.3, repeats: false, block: { _ in
+            // Call API to search
+            APICaller.shared.search(query: query) { result in
+                switch result {
+                    case .success(let response):
+                        DispatchQueue.main.async {
+                            resultsVC.update(with: response.result)
+                        }
+                    case .failure(let error):
+                        DispatchQueue.main.async {
+                            resultsVC.update(with: [])
+                        }
+                        print(error)
+                }
             }
-        }
+        })
     }
 }
 
