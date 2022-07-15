@@ -21,6 +21,7 @@
 		521C2112287DD0EB00DF4770 /* SearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521C2111287DD0EB00DF4770 /* SearchResponse.swift */; };
 		521D3DFC287B2DCC00816150 /* SearchResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521D3DFB287B2DCC00816150 /* SearchResultTableViewCell.swift */; };
 		526E93372879D4D500B5531F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526E93362879D4D500B5531F /* Extensions.swift */; };
+		52E92B672881AF0A0003A8F6 /* PanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E92B662881AF0A0003A8F6 /* PanelViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		521C2111287DD0EB00DF4770 /* SearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResponse.swift; sourceTree = "<group>"; };
 		521D3DFB287B2DCC00816150 /* SearchResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultTableViewCell.swift; sourceTree = "<group>"; };
 		526E93362879D4D500B5531F /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		52E92B662881AF0A0003A8F6 /* PanelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanelViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 		5211627F28772F0000F18667 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				52E92B662881AF0A0003A8F6 /* PanelViewController.swift */,
 				521162842877314000F18667 /* SearchResultsViewController.swift */,
 				521162862877317900F18667 /* StockDetailsViewController.swift */,
 				52116282287730CA00F18667 /* TopStoriesNewsViewController.swift */,
@@ -212,6 +215,7 @@
 				521C2112287DD0EB00DF4770 /* SearchResponse.swift in Sources */,
 				5213C32D2875C73500C97251 /* AppDelegate.swift in Sources */,
 				5213C32F2875C73500C97251 /* SceneDelegate.swift in Sources */,
+				52E92B672881AF0A0003A8F6 /* PanelViewController.swift in Sources */,
 				521162852877314000F18667 /* SearchResultsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
