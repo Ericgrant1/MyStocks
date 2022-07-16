@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3A72C38409736804A06BCF05 /* Pods_MyStocks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E278BBBEC9D1D78E43E7C6FC /* Pods_MyStocks.framework */; };
-		52116283287730CA00F18667 /* TopStoriesNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52116282287730CA00F18667 /* TopStoriesNewsViewController.swift */; };
+		52116283287730CA00F18667 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52116282287730CA00F18667 /* NewsViewController.swift */; };
 		521162852877314000F18667 /* SearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521162842877314000F18667 /* SearchResultsViewController.swift */; };
 		521162872877317900F18667 /* StockDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521162862877317900F18667 /* StockDetailsViewController.swift */; };
 		521162892877382300F18667 /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521162882877382300F18667 /* APICaller.swift */; };
@@ -25,7 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		52116282287730CA00F18667 /* TopStoriesNewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopStoriesNewsViewController.swift; sourceTree = "<group>"; };
+		52116282287730CA00F18667 /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
 		521162842877314000F18667 /* SearchResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsViewController.swift; sourceTree = "<group>"; };
 		521162862877317900F18667 /* StockDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockDetailsViewController.swift; sourceTree = "<group>"; };
 		521162882877382300F18667 /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
@@ -80,7 +80,7 @@
 			children = (
 				521162842877314000F18667 /* SearchResultsViewController.swift */,
 				521162862877317900F18667 /* StockDetailsViewController.swift */,
-				52116282287730CA00F18667 /* TopStoriesNewsViewController.swift */,
+				52116282287730CA00F18667 /* NewsViewController.swift */,
 				5213C3302875C73500C97251 /* WatchListViewController.swift */,
 			);
 			path = Controllers;
@@ -152,7 +152,6 @@
 				57F28641C34EEA5D732301C2 /* Pods-MyStocks.debug.xcconfig */,
 				57AE11E0BC10879ADFE81562 /* Pods-MyStocks.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -274,7 +273,7 @@
 				521D3DFC287B2DCC00816150 /* SearchResultTableViewCell.swift in Sources */,
 				521162872877317900F18667 /* StockDetailsViewController.swift in Sources */,
 				5213C3312875C73500C97251 /* WatchListViewController.swift in Sources */,
-				52116283287730CA00F18667 /* TopStoriesNewsViewController.swift in Sources */,
+				52116283287730CA00F18667 /* NewsViewController.swift in Sources */,
 				5211628B2877387400F18667 /* PersistenceManager.swift in Sources */,
 				526E93372879D4D500B5531F /* Extensions.swift in Sources */,
 				521162892877382300F18667 /* APICaller.swift in Sources */,
