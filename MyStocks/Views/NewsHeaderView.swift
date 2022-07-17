@@ -7,9 +7,15 @@
 
 import UIKit
 
+protocol NewsHeaderViewDelegate: AnyObject {
+    func NewsHeaderViewDidTapaddButton(_ headerView: NewsHeaderView)
+}
+
 class NewsHeaderView: UITableViewHeaderFooterView {
     static let identifier = "NewsHeaderView"
     static let preferredHeight: CGFloat = 70
+    
+    weak var delegate: NewsHeaderViewDelegate?
     
     struct ViewModel {
         let title: String
@@ -47,6 +53,7 @@ class NewsHeaderView: UITableViewHeaderFooterView {
     
     @objc private func didTapButton() {
         // Call delegate
+        delegate?.NewsHeaderViewDidTapaddButton(self)
     }
     
     override func layoutSubviews() {

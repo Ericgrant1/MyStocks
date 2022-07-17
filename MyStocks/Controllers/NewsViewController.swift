@@ -93,7 +93,7 @@ extension NewsViewController: UITableViewDelegate, UITableViewDataSource {
         ) as? NewsHeaderView else {
             return nil
         }
-        header.configure(with: .init(title: self.type.title, shouldShowAddButton: true))
+        header.configure(with: .init(title: self.type.title, shouldShowAddButton: false))
         return header
     }
     
