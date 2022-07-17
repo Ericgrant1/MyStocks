@@ -21,6 +21,7 @@
 		5213C3392875C73700C97251 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5213C3372875C73700C97251 /* LaunchScreen.storyboard */; };
 		521C2112287DD0EB00DF4770 /* SearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521C2111287DD0EB00DF4770 /* SearchResponse.swift */; };
 		521D3DFC287B2DCC00816150 /* SearchResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521D3DFB287B2DCC00816150 /* SearchResultTableViewCell.swift */; };
+		52290EA8288466D5000C8710 /* NewsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52290EA7288466D5000C8710 /* NewsHeaderView.swift */; };
 		526E93372879D4D500B5531F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526E93362879D4D500B5531F /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
@@ -40,6 +41,7 @@
 		5213C33A2875C73700C97251 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		521C2111287DD0EB00DF4770 /* SearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResponse.swift; sourceTree = "<group>"; };
 		521D3DFB287B2DCC00816150 /* SearchResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultTableViewCell.swift; sourceTree = "<group>"; };
+		52290EA7288466D5000C8710 /* NewsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsHeaderView.swift; sourceTree = "<group>"; };
 		526E93362879D4D500B5531F /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		57AE11E0BC10879ADFE81562 /* Pods-MyStocks.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyStocks.release.xcconfig"; path = "Target Support Files/Pods-MyStocks/Pods-MyStocks.release.xcconfig"; sourceTree = "<group>"; };
 		57F28641C34EEA5D732301C2 /* Pods-MyStocks.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyStocks.debug.xcconfig"; path = "Target Support Files/Pods-MyStocks/Pods-MyStocks.debug.xcconfig"; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 			isa = PBXGroup;
 			children = (
 				5213C3372875C73700C97251 /* LaunchScreen.storyboard */,
+				52290EA7288466D5000C8710 /* NewsHeaderView.swift */,
 				521D3DFB287B2DCC00816150 /* SearchResultTableViewCell.swift */,
 			);
 			path = Views;
@@ -278,6 +281,7 @@
 				526E93372879D4D500B5531F /* Extensions.swift in Sources */,
 				521162892877382300F18667 /* APICaller.swift in Sources */,
 				521C2112287DD0EB00DF4770 /* SearchResponse.swift in Sources */,
+				52290EA8288466D5000C8710 /* NewsHeaderView.swift in Sources */,
 				5213C32D2875C73500C97251 /* AppDelegate.swift in Sources */,
 				5213C32F2875C73500C97251 /* SceneDelegate.swift in Sources */,
 				521162852877314000F18667 /* SearchResultsViewController.swift in Sources */,

@@ -12,6 +12,8 @@ class NewsViewController: UIViewController {
     let tableView: UITableView = {
         let table = UITableView()
         // Register cell, header
+        table.register(NewsHeaderView.self,
+                       forHeaderFooterViewReuseIdentifier: NewsHeaderView.identifier)
         table.backgroundColor = .clear
         return table
     }()
@@ -74,7 +76,8 @@ class NewsViewController: UIViewController {
 }
 
 extension NewsViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int
+    ) -> Int {
         return 0
     }
     
@@ -85,7 +88,13 @@ extension NewsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int
     ) -> UIView? {
-        return nil
+        guard let header = tableView.dequeueReusableHeaderFooterView(
+            withIdentifier: NewsHeaderView.identifier
+        ) as? NewsHeaderView else {
+            return nil
+        }
+        header.configure(with: .init(title: self.type.title, shouldShowAddButton: true))
+        return header
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath
@@ -93,8 +102,9 @@ extension NewsViewController: UITableViewDelegate, UITableViewDataSource {
         return 140
     }
     
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 70
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int
+    ) -> CGFloat {
+        return NewsHeaderView.preferredHeight
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
