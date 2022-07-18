@@ -14,6 +14,7 @@ final class APICaller {
         static let apiKey = "cb63ng2ad3i70tu5tuc0"
         static let sendboxApiKey = "sandbox_cb63ng2ad3i70tu5tucg"
         static let baseUrl = "https://finnhub.io/api/v1/"
+        static let day: TimeInterval = 3600 * 24
     }
     
     private init() {}
@@ -47,13 +48,15 @@ final class APICaller {
                     expecting: [NewsStory].self,
                     completion: completion)
             case .company(let symbol):
+                let today = Date()
+                let oneMonthBack = today.addingTimeInterval(-(Constants.day * 7))
                 request(
                     url: url(
                         for: .companyNews,
                         queryParams: [
                             "symbol": symbol,
-                            "from": "",
-                            "to": ""
+                            "from": DateFormatter.newsDateFormatter.string(from: oneMonthBack),
+                            "to": DateFormatter.newsDateFormatter.string(from: today)
                         ]
                     ),
                     expecting: [NewsStory].self,
