@@ -40,15 +40,32 @@ final class APICaller {
         for type: NewsViewController.`Type`,
         completion: @escaping (Result<[NewsStory], Error>) -> Void
     ) {
-        request(url: url(for: .topStories, queryParams: ["category": "general"]),
-                expecting: [NewsStory].self,
-                completion: completion)
+        switch type {
+            case .topStories:
+                request(
+                    url: url(for: .topStories, queryParams: ["category": "general"]),
+                    expecting: [NewsStory].self,
+                    completion: completion)
+            case .company(let symbol):
+                request(
+                    url: url(
+                        for: .companyNews,
+                        queryParams: [
+                            "symbol": symbol,
+                            "from": "",
+                            "to": ""
+                        ]
+                    ),
+                    expecting: [NewsStory].self,
+                    completion: completion)
+        }
     }
     
     // MARK: - Private
     private enum Endpoint: String {
         case search
         case topStories = "news"
+        case companyNews = "company-news"
     }
     
     private enum APIError: Error {
