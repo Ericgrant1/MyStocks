@@ -38,9 +38,11 @@ final class APICaller {
     
     public func news(
         for type: NewsViewController.`Type`,
-        completion: @escaping (Result<[String], Error>) -> Void
+        completion: @escaping (Result<[NewsStory], Error>) -> Void
     ) {
-        let url = url(for: .topStories, queryParams: ["category": "general"])
+        request(url: url(for: .topStories, queryParams: ["category": "general"]),
+                expecting: [NewsStory].self,
+                completion: completion)
     }
     
     // MARK: - Private
