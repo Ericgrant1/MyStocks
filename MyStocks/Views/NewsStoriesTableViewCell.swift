@@ -50,6 +50,7 @@ class NewsStoriesTableViewCell: UITableViewCell {
     // Image
     private let storyImageView: UIImageView = {
         let imageView = UIImageView()
+        imageView.backgroundColor = .white
         imageView.clipsToBounds = true
         imageView.contentMode = .scaleAspectFill
         imageView.layer.cornerRadius = 6
@@ -70,6 +71,14 @@ class NewsStoriesTableViewCell: UITableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
+        
+        let imageSize: CGFloat = contentView.height - 6
+        storyImageView.frame = CGRect(x: contentView.width - imageSize - 10,
+                                      y: 3,
+                                      width: imageSize,
+                                      height: imageSize)
+        
+        // Layout labels
     }
     
     override func prepareForReuse() {
@@ -81,7 +90,10 @@ class NewsStoriesTableViewCell: UITableViewCell {
     }
     
     public func configure(with viewModel: ViewModel) {
-        
+        headlineLabel.text = viewModel.headline
+        sourceLabel.text = viewModel.source
+        dateLabel.text = viewModel.dateString
+        //Image
     }
     
 }
