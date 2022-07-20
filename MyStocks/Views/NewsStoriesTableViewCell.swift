@@ -22,7 +22,7 @@ class NewsStoriesTableViewCell: UITableViewCell {
             self.source = model.source
             self.headline = model.headline
             self.dateString = .string(from: model.datetime)
-            self.imageURL = nil
+            self.imageURL = URL(string: model.image)
         }
     }
     
@@ -119,7 +119,9 @@ class NewsStoriesTableViewCell: UITableViewCell {
         headlineLabel.text = viewModel.headline
         sourceLabel.text = viewModel.source
         dateLabel.text = viewModel.dateString
-        //Image
+        
+        // MAnually set image
+        // storyImageView.setImage(with: viewModel.imageURL)
     }
     
 }
