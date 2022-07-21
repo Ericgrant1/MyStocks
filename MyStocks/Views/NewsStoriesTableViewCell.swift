@@ -37,7 +37,7 @@ class NewsStoriesTableViewCell: UITableViewCell {
     // Headline
     private let headlineLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 24, weight: .regular)
+        label.font = .systemFont(ofSize: 22, weight: .regular)
         label.numberOfLines = 0
         return label
     }()
@@ -75,10 +75,10 @@ class NewsStoriesTableViewCell: UITableViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        let imageSize: CGFloat = contentView.height - 6
+        let imageSize: CGFloat = contentView.height / 1.4
         storyImageView.frame = CGRect(
             x: contentView.width - imageSize - 10,
-            y: 3,
+            y: (contentView.height - imageSize) / 2,
             width: imageSize,
             height: imageSize
         )
