@@ -7,20 +7,28 @@
 
 import Foundation
 
+// ["AAPL", "AMZN", "GOOG", "META", "NFLX", "MSFT", "TSLA", "NVDA", "ORCL", "ADBE"]
+// [AAPL: Apple Inc.]
+
 final class PersistenceManager {
     static let shared = PersistenceManager()
     
     private let userDefaults: UserDefaults = .standard
     
     private struct Constants {
-        
+        static let onboardedKey = "hasOnBoarded"
+        static let watchListKey = "watchlist"
     }
     
     private init() {}
     
     // MARK: - Public
     public var watchlist: [String] {
-        return []
+        if !hasOnBoarded {
+            userDefaults.set(true, forKey: Constants.onboardedKey)
+            setUpDefaults()
+        }
+        return userDefaults.stringArray(forKey: Constants.watchListKey) ?? []
     }
     
     public func addToWatchlist() {
@@ -33,7 +41,29 @@ final class PersistenceManager {
     
     // MARK: - Private
     private var hasOnBoarded: Bool {
-        return false
+        return userDefaults.bool(forKey: Constants.onboardedKey)
+    }
+    
+    private func setUpDefaults() {
+        let map: [String: String] = [
+            "AAPL": "Apple Inc.",
+            "AMZN": "Amazon.com, Inc.",
+            "GOOG": "Alphabet Inc.",
+            "META": "Meta Platforms, Inc.",
+            "NFLX": "Netflix, Inc.",
+            "MSFT": "Microsoft Corporation",
+            "TSLA": "Tesla, Inc.",
+            "NVDA": "NVIDIA Corporation",
+            "ORCL": "Oracle Corporation",
+            "ADBE": "Adobe Inc."
+        ]
+        
+        let symbols = map.keys.map { $0 }
+        userDefaults.set(symbols, forKey: Constants.watchListKey)
+        
+        for (symbol, name) in map {
+            userDefaults.set(name, forKey: symbol)
+        }
     }
     
 }
