@@ -67,7 +67,7 @@ final class APICaller {
     public func marketData(
         for symbol: String,
         numberOfdays: TimeInterval = 7,
-        comletion: @escaping (Result<String, Error>) -> Void
+        comletion: @escaping (Result<MarketDataResponse, Error>) -> Void
     ) {
         let today = Date()
         let prior = today.addingTimeInterval(-(Constants.day * numberOfdays))
@@ -78,11 +78,11 @@ final class APICaller {
                    queryParams: [
                     "symbol": symbol,
                     "resolution": "1",
-                    "from": DateFormatter.newsDateFormatter.string(from: prior),
-                    "to": DateFormatter.newsDateFormatter.string(from: today)
+                    "from": "\(Int(prior.timeIntervalSince1970))",
+                    "to": "\(Int(today.timeIntervalSince1970))",
                    ]
             ),
-            expecting: String.self,
+            expecting: MarketDataResponse.self,
             completion: comletion)
         
     }

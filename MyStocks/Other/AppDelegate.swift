@@ -29,12 +29,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     private func debug() {
-        APICaller.shared.news(for: .company(symbol: "AAPL")) { result in
-            switch result {
-                case .success(let news):
-                    print(news.count)
-                case .failure: break
-            }
+        APICaller.shared.marketData(for: "AAPL", numberOfdays: 1) { result in
+            print(result)
         }
     }
 }
