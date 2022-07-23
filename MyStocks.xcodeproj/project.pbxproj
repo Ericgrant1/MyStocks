@@ -99,8 +99,8 @@
 			isa = PBXGroup;
 			children = (
 				521162882877382300F18667 /* APICaller.swift */,
-				5211628A2877387400F18667 /* PersistenceManager.swift */,
 				5211628C287738F300F18667 /* HapticsManager.swift */,
+				5211628A2877387400F18667 /* PersistenceManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
