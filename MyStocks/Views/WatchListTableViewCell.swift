@@ -46,10 +46,17 @@ class WatchListTableViewCell: UITableViewCell {
     }()
     
     // MiniChart View
-    
+    private let miniChartView = StockChartView()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        addSubviews(
+            symbolLabel,
+            nameLabel,
+            miniChartView,
+            priceLabel,
+            changeLabel
+        )
     }
     
     required init?(coder: NSCoder) {
@@ -62,6 +69,11 @@ class WatchListTableViewCell: UITableViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
+        symbolLabel.text = nil
+        nameLabel.text = nil
+        priceLabel.text = nil
+        changeLabel.text = nil
+        miniChartView.reset()
     }
     
     public func configure(with viewModel: ViewModel) {
