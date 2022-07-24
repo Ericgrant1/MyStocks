@@ -17,14 +17,36 @@ class WatchListTableViewCell: UITableViewCell {
     }
 
     // Symbol Label
+    private let symbolLabel: UILabel = {
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 15, weight: .medium)
+        return label
+    }()
     
     // Company Label
+    private let nameLabel: UILabel = {
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 15, weight: .regular)
+        return label
+    }()
+    
+    // Price Label
+    private let priceLabel: UILabel = {
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 15, weight: .regular)
+        return label
+    }()
+    
+    // Change Label
+    private let changeLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .white
+        label.font = .systemFont(ofSize: 15, weight: .regular)
+        return label
+    }()
     
     // MiniChart View
     
-    // Price Label
-    
-    // Change in Price Label
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
