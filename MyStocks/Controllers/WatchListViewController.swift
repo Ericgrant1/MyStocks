@@ -17,7 +17,7 @@ class WatchListViewController: UIViewController {
     private var watchlistMap: [String: [CandleStick]] = [:]
     
     /// ViewModels
-    private var viewmodels: [String] = []
+    private var viewModels: [WatchListTableViewCell.ViewModel] = []
     
     private let tableView: UITableView = {
         let table = UITableView()
@@ -63,8 +63,49 @@ class WatchListViewController: UIViewController {
         }
         
         group.notify(queue: .main) { [weak self] in
+            self?.createViewModels()
             self?.tableView.reloadData()
         }
+    }
+    
+    private func createViewModels() {
+        var viewModels = [WatchListTableViewCell.ViewModel]()
+        
+        for (symbol, candleSticks) in watchlistMap {
+            let changePercentage = getChangePercentage(for: candleSticks)
+            viewModels.append(
+                .init(
+                    symbol: symbol,
+                    companyName: UserDefaults.standard.string(forKey: symbol) ?? "Company",
+                    price: getLatestClosingPrice(from: candleSticks),
+                    changeColor: changePercentage < 0 ? .systemRed : .systemGreen,
+                    changePercentage: "\(changePercentage)"
+                )
+            )
+        }
+        
+        self.viewModels = viewModels
+    }
+    
+    private func getChangePercentage(for data: [CandleStick]) -> Double {
+        let priorDate = Date().addingTimeInterval(-((3600 * 24) * 2))
+        guard let latestClose = data.first?.close,
+            let priorClose = data.first(where: {
+                Calendar.current.isDate($0.date, inSameDayAs: priorDate)
+            })?.close else {
+                return 0
+                
+            }
+        print("Current: \(latestClose) | Prior: \(priorClose)")
+        
+        return 0.0
+    }
+    
+    private func getLatestClosingPrice(from data: [CandleStick]) -> String {
+        guard let closingPrice = data.first?.close else {
+            return ""
+        }
+        return "\(closingPrice)"
     }
     
     private func setUpTableView() {
