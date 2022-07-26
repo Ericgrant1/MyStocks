@@ -24,13 +24,13 @@ class WatchListTableViewCell: UITableViewCell {
         let price: String // formatted
         let changeColor: UIColor // red or green
         let changePercentage: String // formated
-        // let chartViewModel: StockChartView.ViewModel
+        let chartViewModel: StockChartView.ViewModel
     }
 
     // Symbol Label
     private let symbolLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 15, weight: .medium)
+        label.font = .systemFont(ofSize: 16, weight: .medium)
         return label
     }()
     
@@ -45,26 +45,31 @@ class WatchListTableViewCell: UITableViewCell {
     private let priceLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 15, weight: .regular)
+        label.textAlignment = .right
         return label
     }()
     
     // Change Label
     private let changeLabel: UILabel = {
         let label = UILabel()
+        label.textAlignment = .right
         label.textColor = .white
         label.font = .systemFont(ofSize: 15, weight: .regular)
+        label.layer.masksToBounds = true
+        label.layer.cornerRadius = 6
         return label
     }()
     
     // MiniChart View
     private let miniChartView: StockChartView = {
         let chart = StockChartView()
-        chart.backgroundColor = .link
+        chart.clipsToBounds = true
         return chart
     }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        contentView.clipsToBounds = true
         addSubviews(
             symbolLabel,
             nameLabel,
@@ -112,7 +117,7 @@ class WatchListTableViewCell: UITableViewCell {
         
         priceLabel.frame = CGRect(
             x: contentView.width - 10 - currentWith,
-            y: 0,
+            y: (contentView.height - priceLabel.height - changeLabel.height) / 2,
             width: currentWith,
             height: priceLabel.height
         )
