@@ -7,8 +7,14 @@
 
 import UIKit
 
+protocol WatchListTableViewCellDelegate: AnyObject {
+    func didUpdateMaxWith()
+}
+
 class WatchListTableViewCell: UITableViewCell {
     static let identifier = "WatchListTableViewCell"
+    
+    weak var delegate: WatchListTableViewCellDelegate?
     
     static let preferredHeight: CGFloat = 60
     
@@ -94,17 +100,27 @@ class WatchListTableViewCell: UITableViewCell {
             height: nameLabel.height
         )
         
+        let currentWith = max(
+            max(priceLabel.width, changeLabel.width),
+            WatchListViewController.maxChangeWith
+        )
+        
+        if currentWith > WatchListViewController.maxChangeWith {
+            WatchListViewController.maxChangeWith = currentWith
+            delegate?.didUpdateMaxWith()
+        }
+        
         priceLabel.frame = CGRect(
-            x: contentView.width - 10 - priceLabel.width,
+            x: contentView.width - 10 - currentWith,
             y: 0,
-            width: priceLabel.width,
+            width: currentWith,
             height: priceLabel.height
         )
         
         changeLabel.frame = CGRect(
-            x: contentView.width - 10 - changeLabel.width,
+            x: contentView.width - 10 - currentWith,
             y: priceLabel.bottom,
-            width: changeLabel.width,
+            width: currentWith,
             height: changeLabel.height
         )
         
