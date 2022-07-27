@@ -27,7 +27,6 @@ class StockChartView: UIView {
         super.layoutSubviews()
     }
     
-    
     /// Reset the chart view
     func reset() {
         
