@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SafariServices
 
 class StockDetailsViewController: UIViewController {
     // MARK: - Properties
@@ -124,6 +125,13 @@ extension StockDetailsViewController: UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return NewsHeaderView.preferredHeight
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        guard let url = URL(string: stories[indexPath.row].url) else { return }
+        let vc = SFSafariViewController(url: url)
+        present(vc, animated: true)
     }
 }
 
