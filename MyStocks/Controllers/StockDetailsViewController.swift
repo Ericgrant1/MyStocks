@@ -14,6 +14,17 @@ class StockDetailsViewController: UIViewController {
     private let companyName: String
     private let candleStickData: [CandleStick]
     
+    private let tableView: UITableView = {
+        let table = UITableView()
+        table.register(NewsHeaderView.self,
+                       forHeaderFooterViewReuseIdentifier: NewsHeaderView.identifier)
+        table.register(NewsStoriesTableViewCell.self,
+                       forCellReuseIdentifier: NewsStoriesTableViewCell.identifier)
+        return table
+    }()
+    
+    private var stories: [NewsStory] = []
+    
     // MARK: - Init
     
     init(
@@ -36,6 +47,89 @@ class StockDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
+        setUpTable()
+        fetchFinancialData()
+        fetchNews()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        tableView.frame = view.bounds
+    }
+    
+    // MARK: - Private
+    
+    private func setUpTable() {
+        view.addSubviews(tableView)
+        tableView.delegate = self
+        tableView.dataSource = self
     }
 
+    private func fetchFinancialData() {
+        renderChart()
+    }
+    
+    private func renderChart() {
+        
+    }
+    
+    private func fetchNews() {
+        APICaller.shared.news(for: .company(symbol: symbol)) { [weak self] result in
+            switch result {
+                case .success(let stories):
+                    DispatchQueue.main.async {
+                        self?.stories = stories
+                        self?.tableView.reloadData()
+                    }
+                case .failure(let error):
+                    print(error)
+            }
+        }
+    }
+}
+
+extension StockDetailsViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return stories.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: NewsStoriesTableViewCell.identifier,
+            for: indexPath) as? NewsStoriesTableViewCell else {
+                fatalError()
+            }
+        cell.configure(with: .init(model: stories[indexPath.row]))
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return NewsStoriesTableViewCell.preferredHeight
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        guard let header = tableView.dequeueReusableHeaderFooterView(
+            withIdentifier: NewsHeaderView.identifier
+        ) as? NewsHeaderView else {
+            return nil
+        }
+        header.delegate = self
+        header.configure(
+            with: .init(title: symbol.uppercased(),
+                        shouldShowAddButton: true
+            )
+        )
+        return header
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return NewsHeaderView.preferredHeight
+    }
+}
+
+extension StockDetailsViewController: NewsHeaderViewDelegate {
+    func NewsHeaderViewDidTapaddButton(_ headerView: NewsHeaderView) {
+        // Add to watchlist
+    }
+    
 }
