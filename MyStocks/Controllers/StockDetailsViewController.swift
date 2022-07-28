@@ -48,6 +48,8 @@ class StockDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
+        title = companyName
+        setUpCloseButton()
         setUpTable()
         fetchFinancialData()
         fetchNews()
@@ -60,13 +62,31 @@ class StockDetailsViewController: UIViewController {
     
     // MARK: - Private
     
+    private func setUpCloseButton() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            barButtonSystemItem: .close,
+            target: self,
+            action: #selector(didTapClose)
+        )
+    }
+    
+    @objc private func didTapClose() {
+        dismiss(animated: true, completion: nil)
+    }
+    
     private func setUpTable() {
         view.addSubviews(tableView)
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.tableHeaderView = UIView(
+            frame: CGRect(x: 0, y: 0, width: view.width, height: (view.width * 0.7) + 100))
     }
 
     private func fetchFinancialData() {
+        // Fetch candle stick if needed
+        
+        // Fetch financial metrics
+        
         renderChart()
     }
     
