@@ -90,7 +90,7 @@ class StockDetailsViewController: UIViewController {
         }
         // Fetch financial metrics
         group.enter()
-        APICaller.shared.finacialMetrics(for: symbol) { result in
+        APICaller.shared.finacialMetrics(for: symbol) { [weak self] result in
             defer {
                 group.leave()
             }
@@ -98,6 +98,7 @@ class StockDetailsViewController: UIViewController {
             switch result {
                 case .success(let response):
                     let metrics = response.metric
+                    print(metrics)
                 case .failure(let error):
                     print(error)
             }
@@ -109,7 +110,20 @@ class StockDetailsViewController: UIViewController {
     }
     
     private func renderChart() {
+        // Chart VM | FinancialMetricsViewModel(s)
+        let headerView = StockDetailHeaderView(
+            frame: CGRect(
+                x: 0,
+                y: 0,
+                width: view.width,
+                height: (view.width * 0.7) + 100)
+        )
         
+        headerView.backgroundColor = .link
+        
+        // Configure
+        
+        tableView.tableHeaderView = headerView
     }
     
     private func fetchNews() {
