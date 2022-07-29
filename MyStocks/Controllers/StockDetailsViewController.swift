@@ -83,11 +83,29 @@ class StockDetailsViewController: UIViewController {
     }
 
     private func fetchFinancialData() {
+        let group = DispatchGroup()
         // Fetch candle stick if needed
-        
+        if candleStickData.isEmpty {
+            group.enter()
+        }
         // Fetch financial metrics
+        group.enter()
+        APICaller.shared.finacialMetrics(for: symbol) { result in
+            defer {
+                group.leave()
+            }
+            
+            switch result {
+                case .success(let response):
+                    let metrics = response.metric
+                case .failure(let error):
+                    print(error)
+            }
+        }
         
-        renderChart()
+        group.notify(queue: .main) { [weak self] in
+            self?.renderChart()
+        }
     }
     
     private func renderChart() {
