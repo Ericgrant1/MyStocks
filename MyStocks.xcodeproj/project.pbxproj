@@ -19,6 +19,7 @@
 		5213C3312875C73500C97251 /* WatchListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5213C3302875C73500C97251 /* WatchListViewController.swift */; };
 		5213C3362875C73700C97251 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5213C3352875C73700C97251 /* Assets.xcassets */; };
 		5213C3392875C73700C97251 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5213C3372875C73700C97251 /* LaunchScreen.storyboard */; };
+		52155EFF28943990001EB400 /* FinancialMetricsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52155EFE28943990001EB400 /* FinancialMetricsResponse.swift */; };
 		521C2112287DD0EB00DF4770 /* SearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521C2111287DD0EB00DF4770 /* SearchResponse.swift */; };
 		521D3DFC287B2DCC00816150 /* SearchResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521D3DFB287B2DCC00816150 /* SearchResultTableViewCell.swift */; };
 		52290EA8288466D5000C8710 /* NewsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52290EA7288466D5000C8710 /* NewsHeaderView.swift */; };
@@ -44,6 +45,7 @@
 		5213C3352875C73700C97251 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5213C3382875C73700C97251 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5213C33A2875C73700C97251 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		52155EFE28943990001EB400 /* FinancialMetricsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancialMetricsResponse.swift; sourceTree = "<group>"; };
 		521C2111287DD0EB00DF4770 /* SearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResponse.swift; sourceTree = "<group>"; };
 		521D3DFB287B2DCC00816150 /* SearchResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultTableViewCell.swift; sourceTree = "<group>"; };
 		52290EA7288466D5000C8710 /* NewsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsHeaderView.swift; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 		5211627D28772EB200F18667 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				52155EFE28943990001EB400 /* FinancialMetricsResponse.swift */,
 				5237FB4F288C4FEF00BD4F47 /* MarketDataResponse.swift */,
 				525FBCCD288585A4009CAC2E /* NewsStory.swift */,
 				521C2111287DD0EB00DF4770 /* SearchResponse.swift */,
@@ -292,6 +295,7 @@
 				521D3DFC287B2DCC00816150 /* SearchResultTableViewCell.swift in Sources */,
 				52F85B4F28870C1400C4E1FF /* NewsStoriesTableViewCell.swift in Sources */,
 				521162872877317900F18667 /* StockDetailsViewController.swift in Sources */,
+				52155EFF28943990001EB400 /* FinancialMetricsResponse.swift in Sources */,
 				5213C3312875C73500C97251 /* WatchListViewController.swift in Sources */,
 				52116283287730CA00F18667 /* NewsViewController.swift in Sources */,
 				5211628B2877387400F18667 /* PersistenceManager.swift in Sources */,

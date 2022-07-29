@@ -87,12 +87,28 @@ final class APICaller {
         
     }
     
+    public func finacialMetrics(
+        for symbol: String,
+        completion: @escaping (Result<FinancialMetricsResponse, Error>) -> Void
+    ) {
+
+        request(
+            url: url(
+                for: .financials,
+                queryParams: ["symbol": symbol, "metric": "all"]
+            ),
+            expecting: FinancialMetricsResponse.self,
+            completion: completion
+        )
+    }
+    
     // MARK: - Private
     private enum Endpoint: String {
         case search
         case topStories = "news"
         case companyNews = "company-news"
         case marketData = "stock/candle"
+        case financials = "stock/metric"
     }
     
     private enum APIError: Error {
