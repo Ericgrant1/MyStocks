@@ -25,7 +25,7 @@ class StockDetailHeaderView: UIView, UICollectionViewDelegate, UICollectionViewD
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.register(MetricCollectionViewCell.self,
                                 forCellWithReuseIdentifier: MetricCollectionViewCell.identifier)
-        
+        collectionView.backgroundColor = .secondarySystemBackground
         return collectionView
     }()
     
@@ -77,6 +77,6 @@ class StockDetailHeaderView: UIView, UICollectionViewDelegate, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: width / 2, height: height / 3)
+        return CGSize(width: width / 2, height: 100 / 3)
     }
 }
