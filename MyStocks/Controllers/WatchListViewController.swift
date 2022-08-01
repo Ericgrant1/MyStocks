@@ -108,7 +108,8 @@ class WatchListViewController: UIViewController {
                     chartViewModel: .init(
                         data: candleSticks.reversed().map { $0.close },
                         showLegend: false,
-                        showAxis: false
+                        showAxis: false,
+                        fillColor: changePercentage < 0 ? .systemRed : .systemGreen
                     )
                 )
             )
@@ -126,7 +127,6 @@ class WatchListViewController: UIViewController {
                 !Calendar.current.isDate($0.date, inSameDayAs: latestDate)
             })?.close else {
                 return 0
-                
             }
         let diff = 1 - (priorClose / latestClose)
         
