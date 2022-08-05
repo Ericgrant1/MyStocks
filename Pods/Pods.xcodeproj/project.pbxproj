@@ -655,7 +655,7 @@
 		AF6565E1A562DF03ABE477BB7E4E890D /* SDImageHEICCoder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDImageHEICCoder.m; path = SDWebImage/Core/SDImageHEICCoder.m; sourceTree = "<group>"; };
 		AFB16167A84C840907012FD349CD0285 /* Pods-MyStocks.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-MyStocks.modulemap"; sourceTree = "<group>"; };
 		B0546DE92268CBDF1AFD86BADE37F012 /* SDAsyncBlockOperation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDAsyncBlockOperation.m; path = SDWebImage/Private/SDAsyncBlockOperation.m; sourceTree = "<group>"; };
-		B0B214D775196BA7CA8E17E53048A493 /* SDWebImage */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SDWebImage; path = SDWebImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0B214D775196BA7CA8E17E53048A493 /* SDWebImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SDWebImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B134DDEED26C6914AAB62D795D2F696C /* AxisBase.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AxisBase.swift; path = Source/Charts/Components/AxisBase.swift; sourceTree = "<group>"; };
 		B140E04048C22A3A6698924B7E294F5A /* SDFileAttributeHelper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDFileAttributeHelper.m; path = SDWebImage/Private/SDFileAttributeHelper.m; sourceTree = "<group>"; };
 		B6B57D5979DED3AB2806739BDA6EDB61 /* ValueFormatter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ValueFormatter.swift; path = Source/Charts/Formatters/ValueFormatter.swift; sourceTree = "<group>"; };
@@ -738,7 +738,7 @@
 		F12DD5EA317D86961A0BA44A7F97DE2C /* ScatterChartDataProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ScatterChartDataProvider.swift; path = Source/Charts/Interfaces/ScatterChartDataProvider.swift; sourceTree = "<group>"; };
 		F3ADA75EB9A4F21AB28F8F2652237B1E /* CircleShapeRenderer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CircleShapeRenderer.swift; path = Source/Charts/Renderers/Scatter/CircleShapeRenderer.swift; sourceTree = "<group>"; };
 		F3D7D0503FA96F583B6E3C36DDDD203E /* SDDeviceHelper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDDeviceHelper.h; path = SDWebImage/Private/SDDeviceHelper.h; sourceTree = "<group>"; };
-		F3E7458F7D38C89A9DE4BBACD3450C88 /* SwiftAlgorithms */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftAlgorithms; path = Algorithms.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F3E7458F7D38C89A9DE4BBACD3450C88 /* Algorithms.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Algorithms.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F52256EA473403E1A9C151C4955B13B8 /* Legend.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Legend.swift; path = Source/Charts/Components/Legend.swift; sourceTree = "<group>"; };
 		F73F579DB3C4E09065C322B748BFC374 /* SwiftAlgorithms.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftAlgorithms.debug.xcconfig; sourceTree = "<group>"; };
 		F75C96B84764C481998AF6C10D352D2C /* SDWebImage-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SDWebImage-Info.plist"; sourceTree = "<group>"; };
@@ -1172,8 +1172,8 @@
 				A1C1B977ED8804E8AEEC884E7359EE58 /* Charts */,
 				6FAAB7D3DE9B2564509ABD18687E938E /* FloatingPanel.framework */,
 				6C14DF061085715539D8C2B37A29E922 /* Pods-MyStocks */,
-				B0B214D775196BA7CA8E17E53048A493 /* SDWebImage */,
-				F3E7458F7D38C89A9DE4BBACD3450C88 /* SwiftAlgorithms */,
+				B0B214D775196BA7CA8E17E53048A493 /* SDWebImage.framework */,
+				F3E7458F7D38C89A9DE4BBACD3450C88 /* Algorithms.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1444,7 +1444,7 @@
 			);
 			name = SwiftAlgorithms;
 			productName = Algorithms;
-			productReference = F3E7458F7D38C89A9DE4BBACD3450C88 /* SwiftAlgorithms */;
+			productReference = F3E7458F7D38C89A9DE4BBACD3450C88 /* Algorithms.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		3847153A6E5EEFB86565BA840768F429 /* SDWebImage */ = {
@@ -1462,7 +1462,7 @@
 			);
 			name = SDWebImage;
 			productName = SDWebImage;
-			productReference = B0B214D775196BA7CA8E17E53048A493 /* SDWebImage */;
+			productReference = B0B214D775196BA7CA8E17E53048A493 /* SDWebImage.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		4874E7E655CEB4C01E4572AD903AEA21 /* FloatingPanel */ = {
@@ -1531,7 +1531,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1240;
-				LastUpgradeCheck = 1240;
+				LastUpgradeCheck = 1320;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 13.0";
@@ -1934,7 +1934,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/SDWebImage/SDWebImage-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/SDWebImage/SDWebImage-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2243,7 +2243,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/SwiftAlgorithms/SwiftAlgorithms-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/SwiftAlgorithms/SwiftAlgorithms-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2278,7 +2278,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/SDWebImage/SDWebImage-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/SDWebImage/SDWebImage-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2385,7 +2385,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/SwiftAlgorithms/SwiftAlgorithms-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/SwiftAlgorithms/SwiftAlgorithms-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
