@@ -8,11 +8,15 @@
 import UIKit
 import SDWebImage
 
-class NewsStoriesTableViewCell: UITableViewCell {
+/// /// News story tableView Cell
+final class NewsStoriesTableViewCell: UITableViewCell {
+    /// Cell identifier
     static let identifier = "NewsStoriesTableViewCell"
     
+    /// Ideal height of cell
     static let preferredHeight: CGFloat = 140
     
+    /// Cell viewModel
     struct ViewModel {
         let source: String
         let headline: String
@@ -27,14 +31,14 @@ class NewsStoriesTableViewCell: UITableViewCell {
         }
     }
     
-    // Source
+    /// Source label
     private let sourceLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 14, weight: .medium)
         return label
     }()
     
-    // Headline
+    /// Headline label
     private let headlineLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 22, weight: .regular)
@@ -42,7 +46,7 @@ class NewsStoriesTableViewCell: UITableViewCell {
         return label
     }()
     
-    // Date
+    /// Date label
     private let dateLabel: UILabel = {
         let label = UILabel()
         label.textColor = .secondaryLabel
@@ -50,7 +54,7 @@ class NewsStoriesTableViewCell: UITableViewCell {
         return label
     }()
     
-    // Image
+    /// Image for story
     private let storyImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.backgroundColor = .tertiarySystemBackground
@@ -60,6 +64,8 @@ class NewsStoriesTableViewCell: UITableViewCell {
         imageView.layer.masksToBounds = true
         return imageView
     }()
+    
+    // MARK: - Init
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -116,6 +122,8 @@ class NewsStoriesTableViewCell: UITableViewCell {
         storyImageView.image = nil
     }
     
+    /// Configure view
+    /// - Parameter viewModel: View ViewModel
     public func configure(with viewModel: ViewModel) {
         headlineLabel.text = viewModel.headline
         sourceLabel.text = viewModel.source
